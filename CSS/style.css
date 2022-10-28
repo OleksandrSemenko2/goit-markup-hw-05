@@ -8,6 +8,7 @@
   --brand-background-white: #f5f4fa;
   --brand-icons-gray: #afb1b8;
   --brand-background-gray: rgba(255, 255, 255, 0.1);
+  --brand-background-gray-lite: rgba(47, 48, 58, 0.8);
 }
 body {
   font-family: Roboto, sans-serif;
@@ -36,6 +37,9 @@ a {
 }
 header {
   border-bottom: 1px solid #ececec;
+  position: sticky;
+  top: 0;
+  background-color: var(--brand-background-white);
 }
 .logo {
   font-family: raleway, sans-serif;
@@ -120,7 +124,6 @@ header {
 }
 .contact-icon-container {
   margin-right: 10px;
-  padding: 32px 0;
 }
 .contact-icon {
   fill: var(--brand-color-gray);
@@ -230,6 +233,23 @@ header {
 .we-do {
   display: flex;
   justify-content: space-between;
+}
+.we-do-thumb {
+  position: relative;
+}
+.we-do-thumb > .we-do-text {
+  position: absolute;
+  bottom: 0;
+  margin: 0;
+  padding: 27px 0px;
+  width: 100%;
+  background-color: var(--brand-background-gray-lite);
+  color: var(--brand-color-white);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  line-height: 1.171;
+  font-weight: 700;
+  text-align: center;
 }
 .team {
   display: flex;
