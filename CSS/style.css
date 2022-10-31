@@ -3,12 +3,13 @@
   --brand-color-blue: #2196f3;
   --brand-color-gray: #757575;
   --brand-color-white: white;
-  --brand-background-black: #2f303a;
   --brand-color-dark-blue: #188ce8;
-  --brand-background-white: #f5f4fa;
   --brand-icons-gray: #afb1b8;
+  --brand-background-black: #2f303a;
+  --brand-background-white: #f5f4fa;
   --brand-background-gray: rgba(255, 255, 255, 0.1);
   --brand-background-gray-lite: rgba(47, 48, 58, 0.8);
+  --brand-background-blue: rgba(33, 150, 243, 0.9);
 }
 body {
   font-family: Roboto, sans-serif;
@@ -40,6 +41,7 @@ header {
   position: sticky;
   top: 0;
   background-color: var(--brand-background-white);
+  z-index: 10;
 }
 .logo {
   font-family: raleway, sans-serif;
@@ -93,6 +95,11 @@ header {
 }
 .nav-link.current {
   color: var(--brand-color-blue);
+}
+
+.nav-link.current::after {
+  content: "";
+  border: 2px solid #000;
 }
 
 .site-nav {
@@ -457,6 +464,30 @@ footer {
 .portfolio-item-link:hover {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
+}
+.portfolio-image-box {
+  position: relative;
+  overflow: hidden;
+}
+
+.portfolio-image-box:hover .portfolio-image-overlay {
+  transform: translateY(0);
+}
+
+.portfolio-image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--brand-background-blue);
+  transform: translateY(+100%);
+  transition: transform 250ms ease;
+  color: var(--brand-color-white);
+  padding: 63px 24px;
+  line-height: 1.56;
+  letter-spacing: 0.03em;
+  font-weight: 400;
 }
 
 .portfolio-description {
