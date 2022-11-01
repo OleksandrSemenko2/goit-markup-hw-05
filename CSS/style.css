@@ -10,6 +10,7 @@
   --brand-background-gray: rgba(255, 255, 255, 0.1);
   --brand-background-gray-lite: rgba(47, 48, 58, 0.8);
   --brand-background-blue: rgba(33, 150, 243, 0.9);
+  --brand-background-overlay: rgba(0, 0, 0, 0.2);
 }
 body {
   font-family: Roboto, sans-serif;
@@ -79,6 +80,7 @@ header {
 }
 
 .nav-link {
+  position: relative;
   color: var(--brand-color-black);
   text-decoration: none;
   font-size: 14px;
@@ -92,14 +94,24 @@ header {
 .nav-link:focus,
 .nav-link:hover {
   color: var(--brand-color-blue);
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .nav-link.current {
   color: var(--brand-color-blue);
 }
 
 .nav-link.current::after {
+  position: absolute;
+  margin: 0 auto;
+  bottom: 0;
   content: "";
-  border: 2px solid #000;
+  width: 100%;
+  height: 4px;
+  color: var(--brand-color-blue);
+  background-color: var(--brand-color-blue);
+  border-radius: 2px;
 }
 
 .site-nav {
@@ -121,9 +133,15 @@ header {
 
 .contact-item:hover .contact-icon {
   fill: var(--brand-color-blue);
+  transition-property: fill;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .contact:focus .contact-icon {
   fill: var(--brand-color-blue);
+  transition-property: fill;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .contact-item {
@@ -202,7 +220,47 @@ header {
 }
 .place-order:hover {
   background-color: var(--brand-color-dark-blue);
+  transition-property: background-color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  background-color: var(--brand-background-overlay);
+}
+.is-hidden {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+.modal {
+  width: 528px;
+  height: 581px;
+  background-color: var(--brand-color-white);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.modal-close {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 8px;
+  right: 8px;
+  width: 30px;
+  height: 30px;
+  background-color: var(--brand-color-white);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+}
+
 .benefits {
   display: flex;
   justify-content: space-between;
@@ -313,6 +371,9 @@ header {
 .soc-link:hover {
   background-color: var(--brand-color-blue);
   color: var(--brand-color-white);
+  transition-property: color, backgraund-color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .soc-icon {
   fill: currentColor;
@@ -342,6 +403,9 @@ header {
 .clients-link:hover {
   color: var(--brand-color-blue);
   border-color: var(--brand-color-blue);
+  transition-property: color, border-color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 footer {
   background-color: var(--brand-background-black);
@@ -371,10 +435,16 @@ footer {
 .address-link:focus,
 .address-link:hover {
   color: var(--brand-color-blue);
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .adres:focus,
 .adres:hover {
   color: var(--brand-color-white);
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .footer-soc-links-container {
   margin-left: 70px;
@@ -400,6 +470,9 @@ footer {
 .footer-soc-link:hover {
   background-color: var(--brand-color-blue);
   border-radius: 50%;
+  transition-property: backgraund-color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .footer-soc-link {
   color: var(--brand-color-white);
@@ -445,6 +518,9 @@ footer {
   background-color: var(--brand-color-blue);
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
+  transition-property: color, background-color, box-shadow;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .portfolio-works {
   display: flex;
@@ -464,6 +540,9 @@ footer {
 .portfolio-item-link:hover {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
+  transition-property: box-shadow;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .portfolio-image-box {
   position: relative;
@@ -472,6 +551,7 @@ footer {
 
 .portfolio-image-box:hover .portfolio-image-overlay {
   transform: translateY(0);
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .portfolio-image-overlay {
