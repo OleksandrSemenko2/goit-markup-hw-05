@@ -235,11 +235,18 @@ header {
   background-color: var(--brand-background-overlay);
   visibility: visible;
   opacity: 1;
+  transition-property: opacity, visibility;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transform: rotate(1turn);
 }
 .is-hidden {
   visibility: hidden;
   opacity: 0;
   pointer-events: none;
+  transition-property: opacity, visibility;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .modal {
   width: 528px;
@@ -317,6 +324,7 @@ header {
   text-transform: uppercase;
   letter-spacing: 0.03em;
   line-height: 1.171;
+  font-size: 14px;
   font-weight: 700;
   text-align: center;
 }
@@ -398,10 +406,13 @@ header {
   justify-content: center;
   border-radius: 4px;
   color: var(--brand-icons-gray);
+  transition-property: border-color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .clients-icon {
   fill: currentColor;
-  transition-property: color, border-color;
+  transition-property: color;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -454,11 +465,11 @@ footer {
 }
 .footer-soc-links-header {
   color: var(--brand-color-white);
-  font-size: 1.14;
+  font-size: 14px;
   margin: 0 0 20px 0;
   text-transform: uppercase;
   font-weight: 700;
-  letter-spacing: 3%;
+  letter-spacing: 0.03em;
 }
 .footer-soc-list {
   display: flex;
@@ -568,9 +579,13 @@ footer {
   transition: transform 250ms ease;
   color: var(--brand-color-white);
   padding: 63px 24px;
+}
+
+.portfolio-image-overlay p {
   line-height: 1.56;
   letter-spacing: 0.03em;
-  font-weight: 400;
+  font-size: 18px;
+  margin: 0 auto;
 }
 
 .portfolio-description {
